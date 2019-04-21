@@ -1,3 +1,3 @@
 #### Kurs och kursrepo
 
-Skriv något kort om kursen och länka till [kursens hemsida på dbwebb.se](XXX) och till [kursens kursrepo på GitHub](XXX).
+This website is a part of the course [oophp](https://dbwebb.se/kurser/oophp-v5). Course repo at [GitHub](https://github.com/mosbth/oophp).
