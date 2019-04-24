@@ -14,19 +14,17 @@ class Guess
     const GUESS_MIN = 1;
     const GUESS_MAX = 100;
 
-    /**
-     * @var int $number    The current secret number.
-     * @var int $tries     Number of tries a guess has been made.
-     * @var int $maxTries  Max number of tries allowed.
-     * @var int $recent    The most recent guess made.
-     * @var string $state  State of the game.
-     * @var string $gameId The id of the game.
-     */
+    /** @var int    $number    The current secret number. */
     private $number;
+    /** @var int    $tries     Number of tries a guess has been made. */
     private $tries;
+    /** @var int    $maxTries  Max number of tries allowed. */
     private $maxTries;
+    /** @var int    $recent    The most recent guess made. */
     private $recent;
+    /** @var string $state     State of the game. */
     private $state;
+    /** @var string $gameId    The id of the game. */
     private $gameId;
 
 
@@ -39,8 +37,7 @@ class Guess
      *
      * @param int $number The current secret number, default -1 to initiate
      *                    the number from start.
-     * @param int $tries  Number of tries a guess has been made,
-     *                    default 6.
+     * @param int $tries  Number of tries which can be made.
      */
     public function __construct(int $number = -1, int $tries = 6)
     {
@@ -160,6 +157,8 @@ class Guess
      * if the guess was correct, too low or to high or if no guesses remains.
      *
      * @throws GuessException when guessed number is out of bounds.
+     *
+     * @param int $number The number being guessed.
      *
      * @return string to show the state of the guess made.
      */
