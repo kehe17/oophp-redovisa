@@ -29,11 +29,13 @@ class Dice
     /**
      * Roll the die.
      *
-     * @return void.
+     * @return int the value of the rolled dice.
      */
     public function roll()
     {
         $this->value = rand(1, $this->sides);
+
+        return $this->value;
     }
 
     /**
