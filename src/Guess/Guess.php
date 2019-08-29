@@ -164,11 +164,13 @@ class Guess
      */
     public function makeGuess($number)
     {
+        $state = $this->state();
+
         /**
          * Check if game is still active.
          */
-        if ($this->state === "NO_TRIES" || $this->state === "CORRECT_GUESS") {
-            return $this->state;
+        if ($state === "NO_TRIES" || $state === "CORRECT_GUESS") {
+            return $state;
         }
 
         /**
@@ -176,7 +178,7 @@ class Guess
          */
         if ($number < Guess::GUESS_MIN || $number > Guess::GUESS_MAX) {
             throw new GuessException("INVALID_GUESS");
-            return $this->state;
+            return $state;
         }
 
         /**
