@@ -50,6 +50,34 @@ class DiceGameTest extends TestCase
      * Construct object and verify that the object has the expected
      * properties.
      */
+    public function testGetScore()
+    {
+        $dice = new DiceGame();
+
+        $res = $dice->getTurn();
+        $res = $dice->getScore($res);
+        $exp = 0;
+        $this->assertEquals($exp, $res);
+    }
+
+    /**
+     * Construct object and verify that the object has the expected
+     * properties.
+     */
+    public function testGetHistogram()
+    {
+        $dice = new DiceGame();
+
+        $res = $dice->getTurn();
+        $dice->doRoll($res);
+        $res = $dice->getHistogram($res);
+        $this->assertIsString($res);
+    }
+
+    /**
+     * Construct object and verify that the object has the expected
+     * properties.
+     */
     public function testEndTurn()
     {
         $dice = new DiceGame();

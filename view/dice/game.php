@@ -17,36 +17,59 @@ if ($data[0]->getTurn() === 1 && !$finished) {
 }
 ?>
 
+<h1>100 Dice Game</h1>
+
 <?php if ($finished) : ?>
 <h2><?= $data[0]->getTurn() !== 0 ? "Player" : "Computer" ?> wins!</h2>
 <?php endif; ?>
 
-<h2>Computer</h2>
-<p>
-<?php foreach ($data[0]->getDice(1)["graphics"] as $die) : ?>
-    <i class="die-sprite <?= $die ?>"></i>
-<?php endforeach; ?>
-<br>
-<?= $data[0]->getTurn() === 1 ? "Turn Score: " . $data[0]->getTurnScore(1) : "" ?>
-<br>Total Score: <?= $data[0]->getScore(1) ?>
-</p>
-
-<h2>Player</h2>
-<p>
+<table style="width: 100%;">
+    <tr>
+        <th style="width: 50%;">Player</th>
+        <th style="width: 50%;">Computer</th>
+    </tr>
+    <tr>
+        <th>
 <?php foreach ($data[0]->getDice(0)["graphics"] as $die) : ?>
-    <i class="die-sprite <?= $die ?>"></i>
+<i class="die-sprite <?= $die ?>"></i>
 <?php endforeach; ?>
-<br>
-<?= $data[0]->getTurn() === 0 ? "Turn Score: " . $data[0]->getTurnScore(0) : "" ?>
-<br>Total Score: <?= $data[0]->getScore(0) ?>
-</p>
+        </th>
+        <th>
+<?php foreach ($data[0]->getDice(1)["graphics"] as $die) : ?>
+<i class="die-sprite <?= $die ?>"></i>
+<?php endforeach; ?>
+        </th>
+    </tr>
+    <tr>
+        <td><?= $data[0]->getTurn() === 0 ? "Turn Score: " . $data[0]->getTurnScore(0) : "" ?></th>
+        <td><?= $data[0]->getTurn() === 1 ? "Turn Score: " . $data[0]->getTurnScore(1) : "" ?></th>
+    </tr>
+    <tr>
+        <td>Total Score: <?= $data[0]->getScore(0) ?></th>
+        <td>Total Score: <?= $data[0]->getScore(1) ?></th>
+    </tr>
+    <tr>
+        <td>Histogram</th>
+        <td>Histogram</th>
+    </tr>
+    <tr>
+        <td><pre><?= $data[0]->getHistogram(0) ?></pre></th>
+        <td><pre><?= $data[0]->getHistogram(1) ?></pre></th>
+    </tr>
+</table>
 
 
-<form method="POST" action="roll">
+
+
+
+
+
+
+<form action="roll">
 <input type="submit" value="Roll dice" <?= $data[0]->getTurn() !== 0 || $finished ? "disabled" : "" ?> >
 </form>
 <br>
-<form method="POST" action="pass">
+<form action="pass">
 <input type="submit" value="End turn" <?= $data[0]->getTurn() !== 0 || $finished ? "disabled" : "" ?> >
 </form>
 <br>

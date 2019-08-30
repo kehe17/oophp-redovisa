@@ -36,7 +36,7 @@ class DiceHand
     /**
      * Roll all dice save their value.
      *
-     * @return void.
+     * @return array with values of the last roll.
      */
     public function roll()
     {
@@ -48,6 +48,8 @@ class DiceHand
             $this->values[] = $die->getLastRoll();
             $this->graphics[] = $die->graphic();
         }
+
+        return $this->values;
     }
 
     /**

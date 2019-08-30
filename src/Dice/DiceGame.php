@@ -119,6 +119,16 @@ class DiceGame
     }
 
     /**
+     * Get score of current turn.
+     *
+     * @return int.
+     */
+    public function getHistogram(int $player)
+    {
+        return $this->players[$player]->histogram();
+    }
+
+    /**
      * Finish a turn.
      *
      * @param int $player Which player to end turn for.
